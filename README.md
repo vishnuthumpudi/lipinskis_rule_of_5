@@ -1,1 +1,1 @@
-# lipinskis_rule_of_5
+# lipinski_rule_5

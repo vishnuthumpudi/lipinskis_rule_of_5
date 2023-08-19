@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./capsule.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Lipinski Rule of 5</title>
+</head>
+<body> 
+  <div class="main">
+  <div class="container">
+    <h1>Lipinski Rule of 5</h1>
+    <input type="file" id="fileInput" accept=".pdb">
+    <div class="output">
+      <p class="result">Length of extracted atom information: <span id="length"></span></p>
+      <p class="result">ATOM Molecular Weight: <span id="atomWeight"></span></p>
+      <p class="result">HETATM Molecular Weight: <span id="hetatmWeight"></span></p>
+      <p class="result">Hydrogen Bond Acceptors: <span id="hbAcceptors"></span></p>
+      <p class="result">Hydrogen Bond Donors: <span id="hbDonors"></span></p>
+      <div class="ph-range">
+        <label for="phRange">pH Range: </label>
+        <input type="number" id="phRange" step="0.1" min="0" max="14">
+        <button id="calculateButton">Calculate</button>
+      </div>
+      <p class="result">Log P: <span id="logP"></span></p>
+    </div>
+    <pre id="output"></pre>
+  </div>
+  <div class="container1">
+      <div class="info" >
+        <p><strong>Info!</strong>The website only supports .pdb format only</p>
+        <p>Lipinski rule of 5 helps in distinguishing between drug like and non drug like molecules.</p>
+        <p>It predicts high probability of success or failure due to drug likeness for molecules complying with 2 or more of the following rules</p>
+    </div>
+    <div class="list">
+        <ul class="myUL">
+          <li>Molecular mass less than 500 Dalton</li>
+          <li>High lipophilicity (expressed as LogP less than 5)</li>
+          <li>Less than 5 hydrogen bond donors</li>
+          <li>Less than 10 hydrogen bond acceptors</li> 
+          <li>Molar refractivity should be between 40-130</li>
+        </ul>
+    </div> 
+    </div>
+  <!--<div class="description">
+    <p>Lipinski rule of 5 helps in distinguishing between drug like and non drug like molecules. It predicts high probability of success or failure due to drug 
+      likeness for molecules complying with 2 or more of the following rules
+    </p>
+    <ul>
+      <li>Molecular mass less than 500 Dalton</li>
+      <li>High lipophilicity (expressed as LogP less than 5)</li>
+      <li>Less than 5 hydrogen bond donors</li>
+      <li>Less than 10 hydrogen bond acceptors</li> 
+      <li>Molar refractivity should be between 40-130</li>
+    </ul>
+  </div>-->
+</div>
+  <script src="./script.js"></script>
+</body>
+</html>
