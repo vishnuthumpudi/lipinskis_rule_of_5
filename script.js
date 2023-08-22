@@ -111,14 +111,30 @@ calculateButton.addEventListener('click', function() {
         const hbDonors = countHydrogenBondDonors(atomEntries.concat(hetatmEntries), phValue);
 
         const totalMass = atomWeight + hetatmWeight;
-        atomWeightElement.textContent = atomWeight.toFixed(4) + ' Da';
-        hetatmWeightElement.textContent = hetatmWeight.toFixed(4) + ' Da';
+        atomWeightElement.textContent = atomWeight.toFixed(4) + ' g/mol';
+        hetatmWeightElement.textContent = hetatmWeight.toFixed(4) + ' g/mol';
         hbAcceptorsElement.textContent = hbAcceptors;
         hbDonorsElement.textContent = hbDonors;
-
         // Calculate Log P
         const logP = calculateLogP(hbAcceptors, hbDonors);
         logPElement.textContent = logP.toFixed(2);
+
+        // Calculate Lipinski's Rule of Five violations
+        let numViolations = 0;
+        if (totalMass > 500) {
+          numViolations++;
+        }
+        if (hbAcceptors > 10) {
+          numViolations++;
+        }
+        if (logP > 5) {
+          numViolations++;
+        }
+        if (atomEntries.length + hetatmEntries.length > 50) {
+          numViolations++;
+        }
+        const violationsElement = document.getElementById('violations');
+        violationsElement.textContent = numViolations;
       };
       reader.readAsText(file);
     }
